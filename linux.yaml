@@ -1,0 +1,6 @@
+host_key_checking: False
+ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
+ansible_user: "SheriffMcCoy"
+ansible_password: ""
+ansible_sudo_pass: ""
+ansible_become: yes

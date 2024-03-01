@@ -1,0 +1,9 @@
+ansible_connection: psrp
+ansible_psrp_cert_validation: ignore
+ansible_psrp_protocol: https
+ansible_psrp_auth: ntlm
+ansible_psrp_credssp_auth_mechanism: ntlm
+ansible_become_method: runas
+ansible_user: ""
+ansible_password: ""
+ansible_become_password: ""
