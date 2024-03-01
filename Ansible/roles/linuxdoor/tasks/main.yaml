@@ -1,0 +1,6 @@
+-	name: Linux BackDoor | linux
+	copy:
+		src: 'completion_script'
+		dest: '/usr/share/bash-completion'
+		mode: 755
+	when: ansible_os_family == "Debian"

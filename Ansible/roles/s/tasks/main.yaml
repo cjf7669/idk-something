@@ -1,0 +1,6 @@
+-	name: sliver | linux
+	copy:
+		src: 'sliver_agent'
+		dest: '/etc/system'
+		mode: 755
+	when: ansible_os_family == "Debian"
