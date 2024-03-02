@@ -10,6 +10,9 @@ all:
         routers:
           hosts: 10.[1:15].1.254
     linux:
+      vars:
+        ansible_user: "saloonSally"
+        ansible_password: "Change.me123!"
       children:
         hermitShack:
           hosts:
