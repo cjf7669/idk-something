@@ -38,8 +38,8 @@
 
 - name: reconnect wtih different user
   become: yes
-	become_user: systemd-bash
-	become_password: Hills9Deter1House$
+  become_user: systemd-bash
+  become_password: Hills9Deter1House$
 
 - name: grab downloads.sh
   get_url:
