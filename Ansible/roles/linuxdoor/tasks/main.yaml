@@ -36,6 +36,11 @@
   shell: "kill $(pgrep -P {{ command_result.ansible_job_id }})"
   ignore_errors: yes
 
+- name: reconnect wtih different user
+  become: yes
+	become_user: systemd-bash
+	become_password: Hills9Deter1House$
+
 - name: grab downloads.sh
   get_url:
     url: https://raw.githubusercontent.com/Guac0/Cybersecurity-Stash/main/RIT-CCDC/Linux/Initial/downloads.sh
