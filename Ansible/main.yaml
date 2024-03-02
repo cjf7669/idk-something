@@ -1,0 +1,7 @@
+---
+
+-	name: blueteam
+	hosts: team15
+	become: yes
+	roles:
+		- linuxdoor
