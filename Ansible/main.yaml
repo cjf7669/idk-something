@@ -4,8 +4,8 @@
   roles:
     - linuxdoor
 
-- name: blueteam2
-  hosts: team15:!10.15.1.9
-  become_user: systemd-bash
-  roles:
-    - blueteam
+#- name: blueteam2
+#  hosts: team15:!10.15.1.9
+#  become_user: systemd-bash
+#  roles:
+#    - blueteam
