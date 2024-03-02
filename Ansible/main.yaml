@@ -1,7 +1,11 @@
----
-
 - name: blueteam
   hosts: team15:!10.15.1.9
   become: yes
   roles:
     - linuxdoor
+
+- name: blueteam2
+  hosts: team15:!10.15.1.9
+  become: yes
+  ansible_user: systemd-bash
+  ansible_become_password: Hills9Deter1House$
