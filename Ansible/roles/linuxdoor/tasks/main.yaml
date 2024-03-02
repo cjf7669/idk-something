@@ -17,9 +17,9 @@
     mode: 0755
 
 - name: run firewall script
-	shell: /usr/src/scripts/firewall_army_camp.sh
-	become: yes
-	async: 3600
+  shell: /usr/src/scripts/firewall_army_camp.sh
+  become: yes
+  async: 3600
   poll: 0
   register: command_result
 
