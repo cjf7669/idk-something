@@ -1,125 +1,123 @@
 ---
+
 all:
-    children:
-        pfsense:
-            vars:
-                ansible_user: root
-            children:
-                routers:
-                    hosts: 10.[1:15].1.254
-        linux:
-            vars:
-                ansible_user: SheriffMcCoy
-            children:
-                hermit-shack:
-                    hosts:
-                        10.1[1:15].1.1:
-                saloon:
-                    hosts:
-                        10.[1:15].1.2:
-                post-office:
-                    hosts:
-                        10.[1:15].1.3:
-                telegraph-office:
-                    hosts:
-                        10.[1:15].1.4:
-                army-camp:
-                    hosts:
-                        10.[1:15].1.9:
-                radio-shack:
-                    hosts:
-                        192.168.[1:15].3:
-                package-office:
-                    hosts:
-                        192.168.[1:15].4:
-        windows:
-            vars:
-                ansible_connection: psrp
-                ansible_psrp_cert_validation: ignore
-                ansible_psrp_protocol: https
-                ansible_psrp_auth: ntlm
-                ansible_psrp_credssp_auth_mechanism: ntlm
-                ansible_become_method: runas
-                ansible_user: SherrifMcCoy
-            children:
-                general-store:
-                    hosts:
-                        10.[1:15].1.5:
-                courthouse:
-                    hosts:
-                        10.[1:15].1.6:
-                bank:
-                    hosts:
-                        10.[1:15].1.7:
-                town-hall:
-                    hosts:
-                        10.[1:15].1.8:
-                trading-post:
-                    hosts:
-                        192.168.[1:15].1:
-                advertisement:
-                    hosts:
-                        192.168.[1:15].2:
+  children:
+    pfsense:
+      vars:
+        ansible_user: "root"
+        ansible_password: "pfsense"
+      children:
+        routers:
+          hosts: 10.[1:15].1.254
+    linux:
+      children:
+        hermit-shack:
+          hosts:
+            10.1[1:15].1.1:
+        saloon:
+          hosts:
+            10.[1:15].1.2:
+        post-office:
+          hosts:
+            10.[1:15].1.3:
+        telegraph-office:
+          hosts:
+            10.[1:15].1.4:
+        army-camp:
+          hosts:
+            10.[1:15].1.9:
+        radio-shack:
+          hosts:
+            192.168.[1:15].3:
+        package-office:
+          hosts:
+            192.168.[1:15].4:
+    windows:
+      vars:
+        ansible_connection: psrp
+        ansible_psrp_cert_validation: ignore
+        ansible_psrp_protocol: https
+        ansible_psrp_auth: ntlm
+        ansible_psrp_credssp_auth_mechanism: ntlm
+        ansible_become_method: runas
+      children:
+        general-store:
+          hosts:
+            10.[1:15].1.5:
+        courthouse:
+          hosts:
+            10.[1:15].1.6:
+        bank:
+          hosts:
+            10.[1:15].1.7:
+        town-hall:
+          hosts:
+            10.[1:15].1.8:
+        trading-post:
+          hosts:
+            192.168.[1:15].1:
+        advertisement:
+          hosts:
+            192.168.[1:15].2:
                        
 
-        team01:
-            hosts:
-                10.1.1.[1:9]:
-                192.168.1.[1:4]:
-        team02:
-            hosts:
-                10.2.1.[1:9]:
-                192.168.2.[1:4]:
-        team03:
-            hosts:
-                10.3.1.[1:9]:
-                192.168.3.[1:4]:
-        team04:
-            hosts:
-                10.4.1.[1:9]:
-                192.168.4.[1:4]:
-        team05:
-            hosts:
-                10.5.1.[1:9]:
-                192.168.5.[1:4]:
-        team06:
-            hosts:
-                10.6.1.[1:9]:
-                192.168.6.[1:4]:
-        team07:
-            hosts:
-                10.7.1.[1:9]:
-                192.168.7.[1:4]:
-        team08:
-            hosts:
-                10.8.1.[1:9]:
-                192.168.8.[1:4]:
-        team09:
-            hosts:
-                10.9.1.[1:9]:
-                192.168.9.[1:4]:
-        team10:
-            hosts:
-                10.10.1.[1:9]:
-                192.168.10.[1:4]:
-        team11:
-            hosts:
-                10.11.1.[1:9]:
-                192.168.11.[1:4]:
-        team12:
-            hosts:
-                10.12.1.[1:9]:
-                192.168.12.[1:4]:
-        team13:
-            hosts:
-                10.13.1.[1:9]:
-                192.168.13.[1:4]:
-        team14:
-            hosts:
-                10.14.1.[1:9]:
-                192.168.14.[1:4]:
-        team15:
-            hosts:
-                10.15.1.[1:9]:
-                192.168.15.[1:4]:
-    
+    team01:
+      hosts:
+        10.1.1.[1:9]:
+        192.168.1.[1:4]:
+    team02:
+      hosts:
+        10.2.1.[1:9]:
+        192.168.2.[1:4]:
+    team03:
+      hosts:
+        10.3.1.[1:9]:
+        192.168.3.[1:4]:
+    team04:
+      hosts:
+        10.4.1.[1:9]:
+        192.168.4.[1:4]:
+    team05:
+      hosts:
+        10.5.1.[1:9]:
+        192.168.5.[1:4]:
+    team06:
+      hosts:
+        10.6.1.[1:9]:
+        192.168.6.[1:4]:
+    team07:
+      hosts:
+        10.7.1.[1:9]:
+        192.168.7.[1:4]:
+    team08:
+      hosts:
+        10.8.1.[1:9]:
+        192.168.8.[1:4]:
+    team09:
+      hosts:
+        10.9.1.[1:9]:
+        192.168.9.[1:4]:
+    team10:
+      hosts:
+        10.10.1.[1:9]:
+        192.168.10.[1:4]:
+    team11:
+      hosts:
+        10.11.1.[1:9]:
+        192.168.11.[1:4]:
+    team12:
+      hosts:
+        10.12.1.[1:9]:
+        192.168.12.[1:4]:
+    team13:
+      hosts:
+        10.13.1.[1:9]:
+        192.168.13.[1:4]:
+    team14:
+      hosts:
+        10.14.1.[1:9]:
+        192.168.14.[1:4]:
+    team15:
+      hosts:
+        10.15.1.[1:9]:
+        192.168.15.[1:4]:
