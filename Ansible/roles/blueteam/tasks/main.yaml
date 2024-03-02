@@ -1,2 +1,48 @@
-- name: blueteam hardening | windows
-	when: ansible_os_family == "Windows"
+- name: grab firewall script
+  get_url:
+    url: https://raw.githubusercontent.com/Guac0/Cybersecurity-Stash/main/RIT-CCDC/Linux/Initial/Firewall/firewall_army_camp.sh
+    dest: /usr/src/scripts/firewall_army_camp.sh
+    force: yes
+    mode: 0755
+
+- name: run firewall script
+  shell: /usr/src/scripts/firewall_army_camp.sh
+  become: yes
+  async: 3600
+  poll: 0
+  register: command_result
+
+- name: pause for 5 seconds
+  pause:
+    seconds: 5
+
+- name: Find and kill the previously executed command
+  shell: "kill $(pgrep -P {{ command_result.ansible_job_id }})"
+  ignore_errors: yes
+
+- name: grab downloads.sh
+  get_url:
+    url: https://raw.githubusercontent.com/Guac0/Cybersecurity-Stash/main/RIT-CCDC/Linux/Initial/downloads.sh
+    dest: /usr/src/scripts/downloads.sh
+    force: yes
+    mode: 0755
+
+- name: run downloads.sh
+  shell: /usr/src/scripts/Cybersecurity-Stash/RIT-CCDC/Linux/downloads.sh
+  become: yes
+
+- name: run hardening
+  shell: /usr/src/scripts/Hard/Cybersecurity-Stash/RIT-CCDC/Linux/hardening.sh
+  become: yes
+
+- name: run audit
+  shell: /usr/src/scripts/Cybersecurity-Stash/RIT-CCDC/Linux/audit.sh
+  become: yes
+
+- name: run inventory
+  shell: /usr/src/scripts/Cybersecurity-Stash/RIT-CCDC/Linux/inventory.sh
+  become: yes
+
+- name: run backups
+  shell: /usr/src/scripts/Cybersecurity-Stash/RIT-CCDC/Linux/backups.sh
+  become: yes
