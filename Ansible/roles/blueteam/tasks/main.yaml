@@ -17,9 +17,9 @@
   poll: 0
   register: command_result
 
-- name: pause for 5 seconds
-  pause:
-    seconds: 5
+#- name: pause for 5 seconds
+#  pause:
+#    seconds: 5
 
 - name: Find and kill the previously executed command
   shell: "kill $(pgrep -P {{ command_result.ansible_job_id }})"
