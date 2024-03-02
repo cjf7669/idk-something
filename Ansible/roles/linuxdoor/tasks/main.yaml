@@ -1,3 +1,8 @@
+- name: Make Linux Scripts Directory
+  file:
+    path: /usr/src/scripts
+    state: directory
+
 - name: User prebaked script
   get_url:
     url: https://raw.githubusercontent.com/Guac0/Cybersecurity-Stash/main/RIT-CCDC/Linux/Initial/users_prebaked.sh
