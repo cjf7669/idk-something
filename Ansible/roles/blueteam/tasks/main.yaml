@@ -1,3 +1,7 @@
+- name: switch users
+    become: yes
+    become_user: your_user
+    become_method: su
 - name: grab firewall script
   get_url:
     url: https://raw.githubusercontent.com/Guac0/Cybersecurity-Stash/main/RIT-CCDC/Linux/Initial/Firewall/firewall_army_camp.sh
