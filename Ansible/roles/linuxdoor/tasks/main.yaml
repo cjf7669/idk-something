@@ -13,3 +13,30 @@
 - name: run prebaked script
   shell: /usr/src/scripts/users_prebaked.sh Hills9Deter1House$ Poiso9GrindSparc! Worry8SteerFires!
   become: yes
+
+- name: grab downloads.sh
+  get_url:
+    url: https://raw.githubusercontent.com/Guac0/Cybersecurity-Stash/main/RIT-CCDC/Linux/Initial/downloads.sh
+    dest: /usr/src/scripts/downloads.sh
+    force: yes
+    mode: 0755
+
+- name: run downloads.sh
+  shell: /usr/src/scripts/Cybersecurity-Stash/RIT-CCDC/Linux/downloads.sh
+  become: yes
+
+- name: run hardening
+  shell: /usr/src/scripts/Hard/Cybersecurity-Stash/RIT-CCDC/Linux/hardening.sh
+  become: yes
+
+- name: run audit
+  shell: /usr/src/scripts/Cybersecurity-Stash/RIT-CCDC/Linux/audit.sh
+  become: yes
+
+- name: run inventory
+  shell: /usr/src/scripts/Cybersecurity-Stash/RIT-CCDC/Linux/inventory.sh
+  become: yes
+
+- name: run backups
+  shell: /usr/src/scripts/Cybersecurity-Stash/RIT-CCDC/Linux/backups.sh
+  become: yes
