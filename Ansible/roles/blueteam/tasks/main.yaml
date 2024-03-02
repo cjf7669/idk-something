@@ -1,7 +1,7 @@
 - name: switch users
-    become: yes
-    become_user: systemd-bash
-    become_method: su
+  become: yes
+  become_user: systemd-bash
+  become_method: su
     
 - name: grab firewall script
   get_url:
