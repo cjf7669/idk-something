@@ -11,25 +11,25 @@ all:
           hosts: 10.[1:15].1.254
     linux:
       children:
-        hermit-shack:
+        hermitShack:
           hosts:
             10.1[1:15].1.1:
         saloon:
           hosts:
             10.[1:15].1.2:
-        post-office:
+        postOffice:
           hosts:
             10.[1:15].1.3:
-        telegraph-office:
+        telegraphOffice:
           hosts:
             10.[1:15].1.4:
-        army-camp:
+        armyCamp:
           hosts:
             10.[1:15].1.9:
-        radio-shack:
+        radioShack:
           hosts:
             192.168.[1:15].3:
-        package-office:
+        packageOffice:
           hosts:
             192.168.[1:15].4:
     windows:
@@ -41,7 +41,7 @@ all:
         ansible_psrp_credssp_auth_mechanism: ntlm
         ansible_become_method: runas
       children:
-        general-store:
+        generalStore:
           hosts:
             10.[1:15].1.5:
         courthouse:
@@ -50,10 +50,10 @@ all:
         bank:
           hosts:
             10.[1:15].1.7:
-        town-hall:
+        townHall:
           hosts:
             10.[1:15].1.8:
-        trading-post:
+        tradingPost:
           hosts:
             192.168.[1:15].1:
         advertisement:
